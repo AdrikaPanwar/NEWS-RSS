@@ -4,7 +4,7 @@
   ],
   "functions": {
     "app.py": {
-      "runtime": "python3.9"  // or the version you're using
+      "runtime": "python3.9"  
     }
   }
 }
