@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+   <div class="articles">
+      {% for article in articles %}
+         <article>
+            <h2 class="text-xl"><a href="{{ article[1].link }}" class="text-purple-400">{{ article[1].title }}</a></h2>
+            <p class="text-sm text-gray-300">{{ article[1].published }}</p>
+            <p>Source: {{ article[0] }}</p>
+         </article>
+      {% endfor %}
+    </div>
+    
+    <div class="pagination">
+        {% if page > 1 %}
+            <a href="{{ url_for('index', page=page-1) }}" class="text-white">Previous</a>
+        {% endif %}
+        {% for p in range(1, total_pages + 1) %}
+            <a href="{{ url_for('index', page=p) }}" class="text-white {% if p == page %}active{% endif %}">{{ p }}</a>
+        {% endfor %}
+        {% if page < total_pages %}
+            <a href="{{ url_for('index', page=page+1) }}" class="text-white">Next</a>
+        {% endif %}
+    </div>
+{% endblock %}
+
+
+
+
